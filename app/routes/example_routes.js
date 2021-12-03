@@ -90,7 +90,7 @@ router.patch('/examples/:id', requireToken, removeBlanks, (req, res, next) => {
 router.delete('/examples/:id', requireToken, (req, res, next) => {
   Example.findById(req.params.id)
     .then(handle404)
-     // ensure the signed in user (req.user.id) is the same as the example's owner (example.owner)
+  // ensure the signed in user (req.user.id) is the same as the example's owner (example.owner)
     .then(example => requireOwnership(req, example))
     // delete example from mongodb
     .then(example => example.deleteOne())

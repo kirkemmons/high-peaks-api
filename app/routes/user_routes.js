@@ -102,6 +102,7 @@ router.post('/sign-in', (req, res, next) => {
 // PATCH /change-password
 router.patch('/change-password', requireToken, (req, res, next) => {
   let user
+  console.log(req)
   // `req.user` will be determined by decoding the token payload
   User.findById(req.user.id)
     // save user outside the promise chain
